@@ -33,6 +33,7 @@ text_message='''
 Регистрируйся → %website%  
 На курсы, которые еще не вышли, можно подписаться и получить уведомление о релизе сразу на имейл.
 '''.replace("%website%", site_name).replace("%friend_name%", friends_name).replace("%my_name%", senders_name)
+
 letter = '''/
 From: {from_}
 To: {to}
@@ -40,8 +41,6 @@ Subject: Приглашение!
 Content-Type: text/plain; charset="UTF-8";
 {message}
 '''.format(message=text_message,from_=from_login_mail,to=to_login_mail)
-print(letter)
-
 
 letter = letter.encode("UTF-8")
 server = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
